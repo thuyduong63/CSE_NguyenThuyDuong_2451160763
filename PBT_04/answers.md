@@ -97,6 +97,7 @@ Hàng 3: Chỉ có duy nhất Item 7 và nó nằm ở cột đầu tiên (bên 
   /* SỬA Ở ĐÂY: Tự động tính toán khoảng trống phía trên để đẩy nút dính đáy */
   margin-top: auto;
 }
+
 - Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên
 + Nguyên nhân: Ta đã khai báo display: flex cho .hero nhưng lại không cung cấp các lệnh căn chỉnh. Theo mặc định của Flexbox, các phần tử sẽ xếp từ trái sang phải (justify-content: flex-start) và từ trên xuống dưới (align-items: stretch), khiến nội dung bị "bó" ở góc trái trên cùng của màn hình. text-align: center chỉ có tác dụng căn giữa các dòng chữ nội bộ bên trong .hero-content chứ không thể tự căn giữa chính khối .hero-content đó.
 
@@ -111,6 +112,7 @@ Hàng 3: Chỉ có duy nhất Item 7 và nó nằm ở cột đầu tiên (bên 
 .hero-content {
   text-align: center;
 }
+
 - Lỗi 3: Sidebar bị co lại khi content quá dài
 + Nguyên nhân: Trong Flexbox, thuộc tính flex-shrink mặc định của các phần tử con luôn là 1. Điều này có nghĩa là khi vùng chứa .layout bị thiếu không gian (do .content chứa quá nhiều chữ hoặc dữ liệu dài không tự ngắt dòng), Flexbox sẽ ép tất cả các phần tử con co lại để vừa với khung hình. Hệ quả là .sidebar bị bóp nghẹt nhỏ hơn mức 250px đã định.
 
