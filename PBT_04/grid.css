@@ -1,0 +1,109 @@
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+}
+
+/* ===== GRID LAYOUT CHÍNH ===== */
+.layout {
+    display: grid;
+
+    grid-template-columns: 200px 1fr 200px;
+
+    grid-template-rows:
+        60px
+        120px
+        auto
+        60px;
+
+    grid-template-areas:
+        "header header header"
+        "hero hero hero"
+        "sidebar main ads"
+        "footer footer footer";
+
+    gap: 10px;
+
+    min-height: 100vh;
+}
+
+/* ===== AREAS ===== */
+.header {
+    grid-area: header;
+    background: #111;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    grid-area: hero;
+    background: #ddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #f2f2f2;
+    padding: 10px;
+}
+
+.ads {
+    grid-area: ads;
+    background: #f2f2f2;
+    padding: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #111;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== MAIN PRODUCT GRID ===== */
+.main {
+    grid-area: main;
+}
+
+/* 3 cột sản phẩm */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* CARD */
+.card {
+    background: #eee;
+    padding: 20px;
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+/* hover card */
+.card:hover {
+    transform: scale(1.05);
+    background: #ddd;
+}
+
+/* ===== BONUS FEATURED HERO ITEM ===== */
+.hero {
+    position: relative;
+}
