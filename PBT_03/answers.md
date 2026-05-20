@@ -194,3 +194,25 @@ Kết quả:
 Giải thích:
 + padding + border được tính trong width
 + nên tổng vẫn giữ đúng 1000px
+
+### BÀI B3 — SPECIFICITY BATTLE
+ 10 CSS rules + specificity
+
+1. p → 0,0,1 → gray  
+2. .text → 0,1,0 → blue  
+3. .highlight → 0,1,0 → green  
+4. p.text → 0,1,1 → orange  
+5. p.highlight → 0,1,1 → pink  
+6. .text.highlight → 0,2,0 → purple  
+7. p.text.highlight → 0,2,1 → brown  
+8. #demo → 1,0,0 → red  
+9. #demo.text → 1,1,0 → black  
+10. #demo.text.highlight → 1,2,0 → gold  
+- Kết quả cuối cùng hiển thị màu vàng
++Vì rule cuối có specificity cao nhất: 1,2,0 > tất cả rule còn lại. Nên nó override toàn bộ CSS khác.
+
+- Nếu đổi thứ tự CSS không thay đổi kết quả
+- CSS ưu tiên theo:
+1. Specificity (quan trọng nhất)
+2. Nếu bằng nhau → mới xét thứ tự code
+vì rule #10 có specificity cao nhất nên luôn thắng.
