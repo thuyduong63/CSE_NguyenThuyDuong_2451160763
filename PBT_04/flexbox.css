@@ -1,0 +1,102 @@
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 20px;
+    background: #111;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+/* MENU GIỮA */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+/* LOGIN REGISTER */
+.auth {
+    display: flex;
+    gap: 10px;
+}
+
+.auth a {
+    color: white;
+    text-decoration: none;
+}
+
+.auth a:hover {
+    color: lightgreen;
+    text-decoration: underline;
+}
+
+/* ===== PRODUCT GRID ===== */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    flex: 0 0 calc(25% - 20px);
+
+    border: 1px solid #ccc;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 300px;
+    transition: 0.3s;
+}
+
+/* hover card */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* image */
+.card img {
+    width: 100%;
+}
+
+/* nút luôn xuống đáy */
+.card button {
+    margin-top: auto;
+    padding: 8px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
