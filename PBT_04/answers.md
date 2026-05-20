@@ -37,3 +37,35 @@ Hàng 3: Chỉ có duy nhất Item 7 và nó nằm ở cột đầu tiên (bên 
 [1][2][3]
 [4][5][6]
 [7]
+
+### CÂU C1
+1. Navigation bar (logo + menu + buttons)
+- Dùng: Flexbox
+- Giải thích:
++ Layout 1 chiều (ngang)
++ Căn trái – giữa – phải dễ dàng bằng justify-content
++ Align items theo trục dọc đơn giản
+2. Lưới ảnh Instagram (3 cột, số ảnh không biết trước)
+- Dùng: Grid
+- Giải thích:
++ Layout 2 chiều (hàng + cột)
++ Số item thay đổi nhưng vẫn giữ 3 cột cố định
++ Grid tự wrap theo hàng
+3. Layout blog (main + sidebar)
+- Dùng: Grid (hoặc kết hợp Flexbox trong content)
+- Giải thích:
++ Layout 2 cột rõ ràng (sidebar + main)
++ Grid giúp chia layout tổng thể dễ hơn
++ Flexbox có thể dùng bên trong từng section
+4. Footer 4 cột thông tin
+- Dùng: Grid
+- Giải thích:
++ Chia đều nhiều cột (4 cột cố định)
++ Grid giúp kiểm soát layout ngang chuẩn và đều
++ Dễ responsive hơn Flexbox trong trường hợp này
+5. Card sản phẩm (ảnh trên, text giữa, nút dưới dính đáy)
+- Dùng: Flexbox
+- Giải thích:
++ Layout 1 chiều (dọc)
++ flex-direction: column
++ margin-top: auto để đẩy nút xuống đáy card
