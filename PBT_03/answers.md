@@ -216,3 +216,15 @@ Giải thích:
 1. Specificity (quan trọng nhất)
 2. Nếu bằng nhau → mới xét thứ tự code
 vì rule #10 có specificity cao nhất nên luôn thắng.
+
+### CÂU C1
+1. chiều rộng thực tế của sidebar và content (content-box!)
+Sidebar: 300 + 202 + 12 = 342 px
+Content: 660 + 302 + 12 = 722 px
+2. Layout bị vỡ vì:
+Tổng Chiều rộng thực tế của sidebar và content lớn hơn chiều rộng của container chứa nó nên theo cơ chế của float content sẽ bị đẩy xuống dưới
+3. Đưa ra 2 cách sửa:
+- Cách 1: Dùng border-box Thêm box-sizing = border-box cho cả 2 khi đó chiều rộng của 2 phần tử sẽ là chiều rộng của border, content bị thu nhỏ cho vừa với border
+- Cách 2: Không dùng border-box Phải tính toán chiều rộng của content sao cho khi cộng thêm padding và border thì bằng với chiều rộng mong muốn
++ Sidebar = 300 - 202 - 12 = 258 px
++ Content = 660 - 302 + 12 = 598 px
