@@ -136,3 +136,30 @@ Quy tắc là: Giá trị lề lớn hơn sẽ được giữ lại, và giá tr
 2. Element sẽ có màu đỏ vì: Trình duyệt sẽ so sánh điểm số từ trái sang phải. Rule C (#main-price) có điểm ở cột a (ID) là 1, cao nhất trong tất cả các rule. Dù Rule D có cả class và element nhưng vẫn không thể vượt qua sức mạnh của một ID selector.
 3. Nếu thêm Inline Style (màu orange) thì Element sẽ có màu cam vì: Inline style có độ ưu tiên cao hơn tất cả các selector trong file CSS bên ngoài (điểm số của nó có thể coi là 1, 0, 0, 0 nếu tính cả cột thứ 4).
 4. Nếu Rule A thêm !important thì Element sẽ có màu đen vì: Khi một thuộc tính được đánh dấu !important, nó sẽ phá vỡ mọi quy tắc về Specificity thông thường và giành quyền ưu tiên cao nhất (cao hơn cả ID và Inline style). Vì vậy, màu đen của Rule A sẽ được hiển thị.
+
+### CÂU B1
+- Các selector đã sử dụng
+
+1. Element selector
+Ví dụ:
+body
+header
+table
+footer
+2. Class selector
+Ví dụ: 
+.active
+3. ID selector
+Ví dụ:
+#about
+#skills
+#contact
+4. Descendant selector
+Ví dụ:
+nav a
+tbody tr
+5. Pseudo-class selector
+Ví dụ:
+nav a:hover
+tbody tr:nth-child(even)
+tbody tr:hover
