@@ -69,3 +69,62 @@ Hàng 3: Chỉ có duy nhất Item 7 và nó nằm ở cột đầu tiên (bên 
 + Layout 1 chiều (dọc)
 + flex-direction: column
 + margin-top: auto để đẩy nút xuống đáy card
+
+### CÂU C2
+- Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy lên/xuống
++ Nguyên nhân: Mặc dù .card-container có display: flex giúp các .card có chiều cao bằng nhau (nhờ cơ chế mặc định align-items: stretch), nhưng bản thân bên trong mỗi .card lại chưa được thiết lập Flexbox. Do đó, các phần tử con bên trong (ảnh, tiêu đề, nút) xếp theo luồng văn bản thông thường. Khi có card có tiêu đề dài 2-3 dòng, nó sẽ đẩy nút xuống thấp, còn card có tiêu đề ngắn 1 dòng thì nút bị kéo lên cao.
+
++ Code sửa: Biến chính .card thành một flex container theo chiều dọc (column) và đẩy nút bấm xuống đáy bằng margin-top: auto.
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 30%;
+  margin: 1.5%;
+  /* SỬA Ở ĐÂY: Biến card thành trục dọc */
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  width: 100%;
+}
+.card h3 {
+  font-size: 18px;
+}
+.card .btn {
+  padding: 10px;
+  /* SỬA Ở ĐÂY: Tự động tính toán khoảng trống phía trên để đẩy nút dính đáy */
+  margin-top: auto;
+}
+- Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên
++ Nguyên nhân: Ta đã khai báo display: flex cho .hero nhưng lại không cung cấp các lệnh căn chỉnh. Theo mặc định của Flexbox, các phần tử sẽ xếp từ trái sang phải (justify-content: flex-start) và từ trên xuống dưới (align-items: stretch), khiến nội dung bị "bó" ở góc trái trên cùng của màn hình. text-align: center chỉ có tác dụng căn giữa các dòng chữ nội bộ bên trong .hero-content chứ không thể tự căn giữa chính khối .hero-content đó.
+
++ Code sửa: Bổ sung hai thuộc tính căn chỉnh cốt lõi của Flexbox vào container .hero.
+.hero {
+  height: 100vh;
+  display: flex;
+  /* SỬA Ở ĐÂY */
+  justify-content: center; /* Căn giữa theo chiều ngang (trục chính) */
+  align-items: center; /* Căn giữa theo chiều dọc (trục phụ) */
+}
+.hero-content {
+  text-align: center;
+}
+- Lỗi 3: Sidebar bị co lại khi content quá dài
++ Nguyên nhân: Trong Flexbox, thuộc tính flex-shrink mặc định của các phần tử con luôn là 1. Điều này có nghĩa là khi vùng chứa .layout bị thiếu không gian (do .content chứa quá nhiều chữ hoặc dữ liệu dài không tự ngắt dòng), Flexbox sẽ ép tất cả các phần tử con co lại để vừa với khung hình. Hệ quả là .sidebar bị bóp nghẹt nhỏ hơn mức 250px đã định.
+
++ Code sửa Khóa độ rộng của .sidebar lại bằng cách đặt flex-shrink: 0 (không cho phép co) hoặc dùng thuộc tính viết tắt flex: 0 0 250px.
+.layout {
+  display: flex;
+}
+.sidebar {
+  width: 250px;
+  /* SỬA Ở ĐÂY: Ra lệnh cho Flexbox không bao giờ được co nhỏ sidebar này */
+  flex-shrink: 0;
+}
+.content {
+  flex: 1;
+  /* Thêm thuộc tính này nếu content chứa text quá dài/link không có khoảng trắng */
+  min-width: 0;
+}
