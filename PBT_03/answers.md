@@ -163,3 +163,34 @@ Ví dụ:
 nav a:hover
 tbody tr:nth-child(even)
 tbody tr:hover
+
+### BÀI B2 — BOX MODEL LAB
+PHẦN 1 — content-box vs border-box
+- Hộp 1 (content-box)
+Chiều rộng thực tế≈ 350px (theo DevTools)
+Giải thích:
++ width: 300px chỉ tính phần content
++ padding (20px + 20px) và border (5px + 5px) được cộng thêm vào
++ nên hộp bị rộng hơn 300px
++ Công thức:
+300 + 20 + 20 + 5 + 5 = 350px
+- Hộp 2 (border-box)
+Chiều rộng thực tế: 300px (theo DevTools)
+Giải thích:
++ padding và border nằm trong width 300px
++ nên tổng kích thước không bị tăng lên
+
+PHẦN 2 — Layout 3 cột
+- Không dùng border-box (no-box)
+Kết quả:
++ Layout bị phình / dễ tràn khỏi 1000px
+Giải thích:
++ padding + border làm tăng kích thước từng cột
++ tổng 3 cột > 1000px nên không còn khớp container
+- Có dùng border-box (yes-box)
+Kết quả:
++ 3 cột vừa khít 1000px
++ không bị tràn layout
+Giải thích:
++ padding + border được tính trong width
++ nên tổng vẫn giữ đúng 1000px

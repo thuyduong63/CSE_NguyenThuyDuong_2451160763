@@ -1,0 +1,82 @@
+/* reset */
+* {
+    box-sizing: border-box;
+}
+
+/* ===== PHẦN 1 ===== */
+
+#hop1 {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    box-sizing: content-box;
+    background: lightblue;
+}
+
+#hop2 {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    background: lightgreen;
+    margin-top: 10px;
+}
+
+/* ===== PHẦN 2 ===== */
+
+.container {
+    width: 1000px;
+    display: flex;
+    border: 2px solid red;
+    margin-bottom: 20px;
+}
+
+/* NO BOX */
+.no-box .sidebar,
+.no-box .content,
+.no-box .ads {
+    border: 1px solid black;
+}
+
+.no-box .sidebar {
+    width: 250px;
+    padding: 15px;
+    background: #eee;
+}
+
+.no-box .content {
+    width: 500px;
+    padding: 20px;
+    background: #ddd;
+}
+
+.no-box .ads {
+    width: 250px;
+    padding: 15px;
+    background: #eee;
+}
+
+/* YES BOX */
+.yes-box .sidebar,
+.yes-box .content,
+.yes-box .ads {
+    border: 1px solid black;
+}
+
+.yes-box .sidebar {
+    width: 250px;
+    padding: 15px;
+    background: #eee;
+}
+
+.yes-box .content {
+    width: 500px;
+    padding: 20px;
+    background: #ddd;
+}
+
+.yes-box .ads {
+    width: 250px;
+    padding: 15px;
+    background: #eee;
+}
