@@ -130,4 +130,4 @@ Vì:
 - Cần UI độc quyền, thiết kế đặc biệt
 - Muốn tối ưu performance tối đa (giảm CSS thừa)
 - Dự án nhỏ nhưng cần tối giản code
-- Cần design system riêng không phụ thuộc framework
+- Cần design system riêng không phụ thuộc framework.
