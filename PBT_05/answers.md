@@ -173,3 +173,26 @@ sass --watch scss/style.scss:style.css
 - Kết quả:
 SCSS không dùng trực tiếp trên trình duyệt.
 Phải compile thành CSS trước khi import vào HTML.
+
+### Câu C1 — Phân tích trang web (YouTube)
+
+1. Navigation thay đổi thế nào?
+- Desktop: sidebar đầy đủ bên trái + menu ngang
+- Tablet: sidebar thu gọn thành icon
+- Mobile: sidebar bị ẩn, thay bằng hamburger ☰
+
+2. Lưới content thay đổi mấy cột?
+- Desktop: ~4 cột video
+- Tablet: ~2–3 cột video
+- Mobile: 1 cột video
+
+3. Elements nào bị ẩn trên mobile?
+- Sidebar text menu (Home, Explore, Subscriptions)
+- Gợi ý sidebar bên phải
+- Một số label và nội dung phụ
+
+4. Font size có thay đổi không?
+- Có.
+- Mobile: font nhỏ hơn để tiết kiệm không gian
+- Tablet: trung bình
+- Desktop: lớn hơn, dễ đọc hơn
