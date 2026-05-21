@@ -162,3 +162,14 @@ Các cách chuyển đổi phổ biến trong thực tế:
 2. Dùng Node-Sass / Dart-Sass: Chạy câu lệnh qua Terminal bằng npm: sass style.scss style.css.
 
 3. Dùng Bundler tự động: Tích hợp vào các công cụ đóng gói mã nguồn như Vite, Webpack,
+
+### CÂU B3
+-  SCSS Compile
+- Cài Sass npm install -g sass
+- Compile SCSS → CSS
+sass scss/style.scss style.css
+- Watch mode (tự động compile)
+sass --watch scss/style.scss:style.css
+- Kết quả:
+SCSS không dùng trực tiếp trên trình duyệt.
+Phải compile thành CSS trước khi import vào HTML.

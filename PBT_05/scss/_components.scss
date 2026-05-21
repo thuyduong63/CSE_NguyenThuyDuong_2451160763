@@ -1,0 +1,172 @@
+/*  GLOBAL*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-primary;
+    background: #f5f5f5;
+    color: $text-color;
+}
+
+/* HEADER*/
+
+.header {
+
+    background: $dark-color;
+    color: $light-color;
+
+    padding: $spacing-md;
+
+    @include flex-center;
+
+    justify-content: space-between;
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav {
+
+        display: none;
+
+        a {
+            color: $light-color;
+            text-decoration: none;
+            margin-left: $spacing-md;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .hamburger {
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    @include respond-to(desktop) {
+
+        .nav {
+            display: flex;
+        }
+
+        .hamburger {
+            display: none;
+        }
+    }
+}
+
+/*PRODUCTS*/
+
+.products {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    padding: $spacing-lg;
+
+    @include respond-to(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/*CARD*/
+
+.card {
+
+    background: $light-color;
+    border-radius: $border-radius;
+
+    overflow: hidden;
+
+    transition: $transition;
+
+    @include card-shadow;
+
+    .card-image {
+
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            display: block;
+
+            transition: $transition;
+        }
+    }
+
+    .card-content {
+
+        padding: $spacing-md;
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: $spacing-sm;
+        }
+
+        .card-price {
+            color: $secondary-color;
+            font-weight: bold;
+        }
+
+        .btn {
+
+            margin-top: $spacing-md;
+
+            padding: $spacing-sm $spacing-md;
+
+            border: none;
+            border-radius: 6px;
+
+            background: $primary-color;
+            color: $light-color;
+
+            cursor: pointer;
+
+            transition: $transition;
+
+            &:hover {
+                background: $secondary-color;
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &:hover {
+
+        transform: translateY(-8px);
+
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+
+        img {
+            transform: scale(1.1);
+        }
+    }
+
+    &.featured {
+        border: 3px solid gold;
+    }
+}
+
+/* FOOTER */
+
+.footer {
+
+    background: $dark-color;
+    color: $light-color;
+
+    text-align: center;
+
+    padding: $spacing-lg;
+}
