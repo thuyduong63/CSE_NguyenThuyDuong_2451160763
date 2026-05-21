@@ -1,0 +1,167 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+/* TITLE */
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* PRODUCTS */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* =========================
+   CARD HOVER EFFECT
+========================= */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Hover card */
+
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   IMAGE ZOOM EFFECT
+========================= */
+
+.image-container {
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+/* Zoom image */
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* CONTENT */
+
+.content {
+    padding: 20px;
+}
+
+.content h2 {
+    margin-bottom: 10px;
+}
+
+.content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* =========================
+   BUTTON HOVER
+========================= */
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+
+    background: #007bff;
+    color: white;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover button */
+
+button:hover {
+    background: #ff6600;
+    color: #fff;
+
+    transform: scale(1.05);
+}
+
+/* =========================
+   LOADING SPINNER
+========================= */
+
+.spinner {
+    width: 60px;
+    height: 60px;
+
+    border: 6px solid #ddd;
+    border-top: 6px solid #007bff;
+
+    border-radius: 50%;
+
+    margin: 0 auto 50px;
+
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes spinner */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   FADE IN ANIMATION
+========================= */
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Keyframes fadeIn */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
