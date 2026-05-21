@@ -55,3 +55,21 @@ CSS
 - Tư duy tinh gọn nội dung (Content Strategy): Thiết kế cho màn hình nhỏ ép nhà phát triển và designer phải tập trung vào những tính năng cốt lõi và nội dung quan trọng nhất của doanh nghiệp. Bạn không thể nhồi nhét những thứ "rác giao diện" vào một màn hình rộng 375px. Khi mở rộng lên bản Desktop, giao diện sẽ phát triển một cách tự nhiên và mạch lạc.
 
 - Tốt cho SEO (Google PageRank): Từ lâu, Google đã áp dụng thuật toán Mobile-First Indexing — nghĩa là Google sẽ ưu tiên sử dụng phiên bản di động của trang web để lập chỉ mục và xếp hạng trên công cụ tìm kiếm. Một trang web chuẩn Mobile-First sẽ ghi điểm tuyệt đối trong mắt Google.
+
+### Câu A2
++----------------------+---------------+------------------------+---------------------------+
+| Breakpoint           | Kích thước    | Thiết bị đại diện      | Ví dụ lưới sản phẩm       |
++----------------------+---------------+------------------------+---------------------------+
+| Extra Small (xs)     | < 576px       | Điện thoại nhỏ         | 1 cột                     |
++----------------------+---------------+------------------------+---------------------------+
+| Small (sm)           | ≥ 576px       | Điện thoại lớn         | 2 cột                     |
++----------------------+---------------+------------------------+---------------------------+
+| Medium (md)          | ≥ 768px       | Tablet                 | 2 – 3 cột                 |
++----------------------+---------------+------------------------+---------------------------+
+| Large (lg)           | ≥ 992px       | Laptop                 | 4 cột                     |
++----------------------+---------------+------------------------+---------------------------+
+| Extra Large (xl)     | ≥ 1200px      | Desktop lớn            | 5 cột                     |
++----------------------+---------------+------------------------+---------------------------+
+| Extra Extra Large    | ≥ 1400px      | Màn hình rất lớn       | 6 cột                     |
+| (xxl)                |               |                        |                           |
++----------------------+---------------+------------------------+---------------------------+
