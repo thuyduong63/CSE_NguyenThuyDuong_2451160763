@@ -174,7 +174,7 @@ sass --watch scss/style.scss:style.css
 SCSS không dùng trực tiếp trên trình duyệt.
 Phải compile thành CSS trước khi import vào HTML.
 
-### Câu C1 — Phân tích trang web (YouTube)
+### Câu C1 
 
 1. Navigation thay đổi thế nào?
 - Desktop: sidebar đầy đủ bên trái + menu ngang
@@ -196,3 +196,115 @@ Phải compile thành CSS trước khi import vào HTML.
 - Mobile: font nhỏ hơn để tiết kiệm không gian
 - Tablet: trung bình
 - Desktop: lớn hơn, dễ đọc hơn
+
+### Câu C2 
+1. Wireframe bố cục
+-  Mobile (<768px)
+┌──────────────────────┐
+│ LOGO + ☰            │
+│ Hotline             │
+├──────────────────────┤
+│ HERO IMAGE           │
+├──────────────────────┤
+│ FORM ĐẶT BÀN         │
+│ (date, time, people) │
+├──────────────────────┤
+│ GRID MÓN ĂN (1 cột)  │
+├──────────────────────┤
+│ GOOGLE MAPS          │
+├──────────────────────┤
+│ FOOTER               │
+└──────────────────────┘
+Mobile:
+Ẩn: sidebar (không có)
+Form nằm ngay dưới hero
+Grid chỉ 1 cột
+- Tablet (≥768px)
+┌──────────────────────────────┐
+│ LOGO + Hotline               │
+├──────────────────────────────┤
+│ HERO IMAGE                  │
+├──────────────────────────────┤
+│ FORM ĐẶT BÀN                │
+├──────────────────────────────┤
+│ GRID MÓN ĂN (2–3 cột)       │
+├──────────────────────────────┤
+│ GOOGLE MAPS                 │
+├──────────────────────────────┤
+│ FOOTER                      │
+└──────────────────────────────┘
+Tablet:
+Grid: 2–3 cột
+Maps: full width dưới grid
+Form vẫn nằm giữa page
+- Desktop (≥1024px)
+┌──────────────────────────────────────────────┐
+│ LOGO              NAV              HOTLINE   │
+├──────────────────────────────────────────────┤
+│                HERO IMAGE                   │
+├───────────────┬──────────────────────────────┤
+│ FORM ĐẶT BÀN  │ GRID MÓN ĂN (3–4 cột)       │
+│               │                              │
+├───────────────┴──────────────────────────────┤
+│              GOOGLE MAPS                     │
+├──────────────────────────────────────────────┤
+│                FOOTER                       │
+└──────────────────────────────────────────────┘
+Desktop:
+Layout 2 cột (form + grid)
+Grid: 3–4 cột
+Có thể có nav menu đầy đủ
+2. CSS Skeleton (Mobile-First)
+/* ===== BASE (MOBILE FIRST) ===== */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.header,
+.hero,
+.form,
+.gallery,
+.map,
+.footer {
+    padding: 16px;
+}
+
+/* GRID MÓN ĂN */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        gap: 20px;
+    }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+
+    .container {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+            "header header"
+            "hero hero"
+            "form gallery"
+            "map map"
+            "footer footer";
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
