@@ -88,3 +88,77 @@ CSS
 +---------------------------+----------------------+
 | 1400px                    | 1140px               |
 +---------------------------+----------------------+
+
+### CÂU A4
+4 tính năng chính của SCSS và ví dụ
+
+1. Variables (Biến số)
+- Giải thích: Tính năng này cho phép bạn lưu trữ các giá trị được sử dụng lặp đi lặp lại nhiều lần (như mã màu, font chữ, kích thước, khoảng cách border) vào trong một cái tên gợi nhớ bắt đầu bằng ký tự $. Khi muốn đổi màu toàn bộ hệ thống, bạn chỉ cần sửa đúng một nơi duy nhất tại vị trí khai báo biến.
+
+Ví dụ:
+
+$primary-color: #007bff;
+$spacing-lg: 20px;
+
+.btn-submit {
+  background-color: $primary-color;
+  padding: $spacing-lg;
+}
+2. Nesting (Cú pháp lồng nhau)
+- Giải thích: Thay vì phải viết đi viết lại bộ chọn cha (Selector) theo cách viết CSS truyền thống, SCSS cho phép bạn viết các bộ chọn con lồng trực tiếp vào bên trong bộ chọn cha. Cách viết này mô phỏng chính xác cấu trúc hình cây của phân cấp HTML, giúp code gọn gàng và dễ quản lý hơn. Đặc biệt, ký tự & được dùng để đại diện cho chính bộ chọn cha đó (thường dùng cho pseudo-class như :hover, :focus).
+
+Ví dụ:
+
+.navbar {
+  background: #fff;
+
+  .nav-item {
+    color: #333;
+    &:hover {
+      color: blue;
+    } // Tương đương .navbar .nav-item:hover
+  }
+}
+3. Mixins (@mixin và @include)
+- Giải thích: Mixin giống như một "hàm" trong lập trình. Nó cho phép gom một tập hợp nhiều dòng thuộc tính CSS lại thành một khối để tái sử dụng ở bất kỳ đâu. Hơn nữa, Mixin có thể nhận các tham số truyền vào để linh hoạt thay đổi giá trị đầu ra. Ta định nghĩa khối bằng @mixin và gọi nó ra bằng @include.
+
+Ví dụ:
+
+// Định nghĩa mixin căn giữa bằng Flexbox
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+// Sử dụng mixin
+.hero-content {
+  @include flex-center(column); /* Truyền tham số trục dọc */
+}
+4. @extend / Inheritance (Kế thừa)
+- Giải thích: Tính năng này cho phép một bộ chọn chia sẻ hoặc "sao chép ké" lại toàn bộ các thuộc tính CSS của một bộ chọn khác. Nó giúp giảm thiểu việc lặp lại code, tạo ra các class có tính chất tương tự nhau nhưng biến tấu một chút ở phần đuôi (như các loại nút bấm báo lỗi, nút thành công dựa trên một khung nút cơ bản).
+
+Ví dụ:
+
+.btn-base {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-success {
+  @extend .btn-base;
+  background-color: green; /* Kế thừa nút cơ bản và chỉ đổi màu nền */
+}
+Tại sao trình duyệt KHÔNG đọc được file .scss? Quy trình chuyển đổi
+- Nguyên nhân:Các trình duyệt web (như Chrome, Safari, Edge, Firefox) được lập trình để chỉ hiểu và phân tích cú pháp chuẩn của ngôn ngữ **CSS gốc (CSS thuần túy). Cú pháp của SCSS (với các ký hiệu $, lồng nhau, @mixin,...) nằm ngoài bộ quy tắc xử lý của lõi trình duyệt, nếu bạn nạp trực tiếp file .scss vào thẻ <link>, trình duyệt sẽ báo lỗi cú pháp hoặc phớt lờ hoàn toàn.
+
+- Giải pháp (Bước chuyển đổi): Để trình duyệt chạy được, cần thực hiện một bước gọi là Biên dịch (Compilation) để chuyển đổi tệp .scss thành tệp .css thông qua các công cụ hỗ trợ.
+
+Các cách chuyển đổi phổ biến trong thực tế:
+1. Dùng Extension Cài đặt tiện ích mở rộng Live Sass Compiler trực tiếp trên VS Code. Mỗi khi nhấn Ctrl + S lưu file .scss, nó sẽ tự động biên dịch ra file .css song song ngay lập tức.
+
+2. Dùng Node-Sass / Dart-Sass: Chạy câu lệnh qua Terminal bằng npm: sass style.scss style.css.
+
+3. Dùng Bundler tự động: Tích hợp vào các công cụ đóng gói mã nguồn như Vite, Webpack,
