@@ -1,153 +1,309 @@
-const btnAdd = document.getElementById("btnAdd");
-const btnClose = document.getElementById("btnClose");
-const modal = document.getElementById("modal");
-const studentForm = document.getElementById("studentForm");
-const studentTableBody = document.getElementById("studentTableBody");
-const message = document.getElementById("message");
-const totalStudents = document.getElementById("totalStudents");
-const avgScore = document.getElementById("avgScore");
-const formTitle = document.getElementById("formTitle");
-const btnSave = document.getElementById("btnSave");
+// Lấy dữ liệu localStorage
+let students = JSON.parse(localStorage.getItem("students"));
 
-const studentId = document.getElementById("studentId");
-const fullName = document.getElementById("fullName");
-const birthDate = document.getElementById("birthDate");
-const className = document.getElementById("className");
-const score = document.getElementById("score");
-const email = document.getElementById("email");
+// Nếu chưa có dữ liệu thì tạo sẵn 5 sinh viên
+if (!students) {
 
-let students = JSON.parse(localStorage.getItem("students")) || [];
-let editIndex = -1;
+    students = [
 
-function saveStudents() {
+        {
+            id: "SV001",
+            name: "Nguyễn Văn A",
+            birthday: "2004-01-10",
+            className: "CNTT1",
+            gpa: 8.5,
+            email: "vana@gmail.com"
+        },
+
+        {
+            id: "SV002",
+            name: "Trần Thị B",
+            birthday: "2004-03-15",
+            className: "CNTT2",
+            gpa: 7.8,
+            email: "thib@gmail.com"
+        },
+
+        {
+            id: "SV003",
+            name: "Lê Văn C",
+            birthday: "2004-07-20",
+            className: "CNTT3",
+            gpa: 9.0,
+            email: "vanc@gmail.com"
+        },
+
+        {
+            id: "SV004",
+            name: "Phạm Thị D",
+            birthday: "2004-09-12",
+            className: "CNTT1",
+            gpa: 8.0,
+            email: "thid@gmail.com"
+        },
+
+        {
+            id: "SV005",
+            name: "Hoàng Văn E",
+            birthday: "2004-11-05",
+            className: "CNTT2",
+            gpa: 7.5,
+            email: "vane@gmail.com"
+        }
+
+    ];
+
     localStorage.setItem("students", JSON.stringify(students));
 }
 
-function renderStudents() {
-    studentTableBody.innerHTML = "";
+// DOM
+const studentTable = document.getElementById("studentTable");
 
-    if (students.length === 0) {
-        studentTableBody.innerHTML = `
-            <tr>
-                <td colspan="7">Chưa có sinh viên nào</td>
-            </tr>
-        `;
-        updateStatistics();
-        return;
-    }
+const studentForm = document.getElementById("studentForm");
 
-    students.forEach((student, index) => {
-        studentTableBody.innerHTML += `
+const studentModal = document.getElementById("studentModal");
+
+const openModalBtn = document.getElementById("openModalBtn");
+
+const closeModalBtn = document.getElementById("closeModalBtn");
+
+const message = document.getElementById("message");
+
+const totalStudents = document.getElementById("totalStudents");
+
+const averageGPA = document.getElementById("averageGPA");
+
+const modalTitle = document.getElementById("modalTitle");
+
+// Mở modal
+openModalBtn.addEventListener("click", function(){
+
+    studentModal.style.display = "block";
+
+    studentForm.reset();
+
+    document.getElementById("editIndex").value = "";
+
+    modalTitle.innerText = "Thêm Sinh Viên";
+});
+
+// Đóng modal
+closeModalBtn.addEventListener("click", function(){
+
+    studentModal.style.display = "none";
+});
+
+// Render bảng sinh viên
+function renderStudents(){
+
+    studentTable.innerHTML = "";
+
+    if(students.length === 0){
+
+        studentTable.innerHTML = `
             <tr>
-                <td>${student.studentId}</td>
-                <td>${student.fullName}</td>
-                <td>${student.birthDate}</td>
-                <td>${student.className}</td>
-                <td>${student.score}</td>
-                <td>${student.email}</td>
-                <td>
-                    <button class="btn-edit" onclick="editStudent(${index})">Sửa</button>
-                    <button class="btn-delete" onclick="deleteStudent(${index})">Xóa</button>
+                <td colspan="8">
+                    Chưa có sinh viên nào
                 </td>
             </tr>
         `;
+
+        return;
+    }
+
+    students.forEach(function(student, index){
+
+        let row = `
+            <tr>
+
+                <td>${index + 1}</td>
+
+                <td>${student.id}</td>
+
+                <td>${student.name}</td>
+
+                <td>${student.birthday}</td>
+
+                <td>${student.className}</td>
+
+                <td>${student.gpa}</td>
+
+                <td>${student.email}</td>
+
+                <td>
+
+                    <button
+                        class="edit-btn"
+                        onclick="editStudent(${index})"
+                    >
+                        Sửa
+                    </button>
+
+                    <button
+                        class="delete-btn"
+                        onclick="deleteStudent(${index})"
+                    >
+                        Xóa
+                    </button>
+
+                </td>
+
+            </tr>
+        `;
+
+        studentTable.innerHTML += row;
     });
 
     updateStatistics();
 }
 
-function updateStatistics() {
+// Lưu localStorage
+function saveStudents(){
+
+    localStorage.setItem(
+        "students",
+        JSON.stringify(students)
+    );
+}
+
+// Cập nhật thống kê
+function updateStatistics(){
+
     totalStudents.innerText = students.length;
 
-    if (students.length === 0) {
-        avgScore.innerText = "0";
-        return;
-    }
+    let total = 0;
 
-    let totalScore = students.reduce((sum, student) => {
-        return sum + Number(student.score);
-    }, 0);
+    students.forEach(function(student){
 
-    avgScore.innerText = (totalScore / students.length).toFixed(2);
+        total += Number(student.gpa);
+    });
+
+    let average = total / students.length;
+
+    averageGPA.innerText = average.toFixed(2);
 }
 
-function resetForm() {
-    studentForm.reset();
-    editIndex = -1;
-    formTitle.innerText = "Thêm sinh viên";
-    btnSave.innerText = "Lưu";
+// Hiển thị thông báo
+function showMessage(text){
+
+    message.innerText = text;
+
+    setTimeout(function(){
+
+        message.innerText = "";
+
+    }, 2000);
 }
 
-function openModal() {
-    modal.style.display = "block";
-}
+// Submit form
+studentForm.addEventListener("submit", function(event){
 
-function closeModal() {
-    modal.style.display = "none";
-    resetForm();
-}
-
-btnAdd.addEventListener("click", function () {
-    resetForm();
-    openModal();
-});
-
-btnClose.addEventListener("click", function () {
-    closeModal();
-});
-
-studentForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const student = {
-        studentId: studentId.value,
-fullName: fullName.value,
-        birthDate: birthDate.value,
-        className: className.value,
-        score: score.value,
-        email: email.value
-    };
+    const id = document.getElementById("studentId").value;
 
-    if (editIndex === -1) {
-        students.push(student);
-        message.innerText = "Thêm sinh viên thành công!";
-    } else {
-        students[editIndex] = student;
-        message.innerText = "Cập nhật sinh viên thành công!";
+    const name = document.getElementById("studentName").value;
+
+    const birthday = document.getElementById("birthday").value;
+
+    const className = document.getElementById("className").value;
+
+    const gpa = document.getElementById("gpa").value;
+
+    const email = document.getElementById("email").value;
+
+    const editIndex =
+        document.getElementById("editIndex").value;
+
+    // Chế độ sửa
+    if(editIndex !== ""){
+
+        students[editIndex] = {
+            id,
+            name,
+            birthday,
+            className,
+            gpa,
+            email
+        };
+
+        showMessage("Cập nhật sinh viên thành công!");
+
+    }else{
+
+        // Thêm mới
+        const newStudent = {
+            id,
+            name,
+            birthday,
+            className,
+            gpa,
+            email
+        };
+
+        students.push(newStudent);
+
+        showMessage("Thêm sinh viên thành công!");
     }
 
     saveStudents();
+
     renderStudents();
-    closeModal();
+
+    studentModal.style.display = "none";
+
+    studentForm.reset();
 });
 
-function editStudent(index) {
-    editIndex = index;
+// Sửa sinh viên
+function editStudent(index){
 
     const student = students[index];
 
-    studentId.value = student.studentId;
-    fullName.value = student.fullName;
-    birthDate.value = student.birthDate;
-    className.value = student.className;
-    score.value = student.score;
-    email.value = student.email;
+    document.getElementById("studentId").value =
+        student.id;
 
-    formTitle.innerText = "Cập nhật sinh viên";
-    btnSave.innerText = "Cập nhật";
+    document.getElementById("studentName").value =
+        student.name;
 
-    openModal();
+    document.getElementById("birthday").value =
+        student.birthday;
+
+    document.getElementById("className").value =
+        student.className;
+
+    document.getElementById("gpa").value =
+        student.gpa;
+
+    document.getElementById("email").value =
+        student.email;
+
+    document.getElementById("editIndex").value =
+        index;
+
+    modalTitle.innerText = "Cập Nhật Sinh Viên";
+
+    studentModal.style.display = "block";
 }
 
-function deleteStudent(index) {
-    const confirmDelete = confirm("Bạn có chắc chắn muốn xóa sinh viên này không?");
+// Xóa sinh viên
+function deleteStudent(index){
 
-    if (confirmDelete) {
+    let confirmDelete = confirm(
+        "Bạn có chắc muốn xóa sinh viên này không?"
+    );
+
+    if(confirmDelete){
+
         students.splice(index, 1);
+
         saveStudents();
+
         renderStudents();
-        message.innerText = "Xóa sinh viên thành công!";
+
+        showMessage("Xóa sinh viên thành công!");
     }
 }
 
+// Chạy lần đầu
 renderStudents();

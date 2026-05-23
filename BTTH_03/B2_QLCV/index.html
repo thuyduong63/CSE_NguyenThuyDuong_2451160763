@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ứng Dụng Quản Lý Công Việc</h1>
+
+        <!-- Thống kê -->
+        <div class="summary">
+            <p>Tổng công việc: <span id="totalTasks">0</span></p>
+            <p>Đã hoàn thành: <span id="completedTasks">0</span></p>
+            <p>Chưa hoàn thành: <span id="pendingTasks">0</span></p>
+        </div>
+
+        <!-- Nút thêm -->
+        <button id="openFormBtn" class="add-btn">
+            + Thêm Công Việc
+        </button>
+
+        <!-- Thông báo -->
+        <div id="message"></div>
+
+        <!-- Danh sách công việc -->
+        <div id="taskList" class="task-list">
+            <!-- Render bằng JS -->
+        </div>
+    </div>
+
+    <!-- Popup Form -->
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeFormBtn">&times;</span>
+
+            <h2 id="formTitle">Thêm Công Việc</h2>
+
+            <form id="taskForm">
+
+                <input type="hidden" id="taskId">
+
+                <label>Tiêu đề công việc</label>
+                <input type="text" id="title" required>
+
+                <label>Mô tả ngắn</label>
+                <textarea id="description"></textarea>
+
+                <label>Hạn hoàn thành</label>
+                <input type="date" id="deadline">
+
+                <label>Mức ưu tiên</label>
+                <select id="priority">
+                    <option value="Thấp">Thấp</option>
+                    <option value="Trung bình">Trung bình</option>
+                    <option value="Cao">Cao</option>
+                </select>
+
+                <button type="submit" class="save-btn">
+                    Lưu Công Việc
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
