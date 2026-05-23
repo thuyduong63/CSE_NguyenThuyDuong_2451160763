@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tailwind Components Library</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .spinner {
+      border: 3px solid #fff;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- HEADER -->
+  <header class="bg-blue-600 text-white p-4 shadow-md">
+    <h1 class="text-3xl font-bold text-center">
+      Tailwind Components Library
+    </h1>
+  </header>
+
+  <div class="flex">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-white shadow-lg min-h-screen p-5">
+      <h2 class="text-xl font-bold mb-4">Menu</h2>
+
+      <ul class="space-y-3">
+        <li>
+          <a href="#buttons" class="block hover:text-blue-500 transition">
+            Buttons
+          </a>
+        </li>
+
+        <li>
+          <a href="#cards" class="block hover:text-blue-500 transition">
+            Cards
+          </a>
+        </li>
+
+        <li>
+          <a href="#forms" class="block hover:text-blue-500 transition">
+            Forms
+          </a>
+        </li>
+
+        <li>
+          <a href="#alerts" class="block hover:text-blue-500 transition">
+            Alerts
+          </a>
+        </li>
+
+        <li>
+          <a href="#navbar" class="block hover:text-blue-500 transition">
+            Navigation
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-8">
+
+      <!-- NAVBAR -->
+      <section id="navbar" class="mb-14">
+        <h2 class="text-2xl font-bold mb-5">Horizontal Navbar</h2>
+
+        <nav class="bg-white shadow rounded-lg p-4 flex justify-between items-center">
+          <div class="font-bold text-lg text-blue-600">
+            MyWebsite
+          </div>
+
+          <ul class="flex gap-6">
+            <li>
+              <a href="#" class="hover:text-blue-500 transition">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-blue-500 transition">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-blue-500 transition">
+                Services
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-blue-500 transition">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- BUTTONS -->
+      <section id="buttons" class="mb-14">
+        <h2 class="text-2xl font-bold mb-5">Buttons</h2>
+
+        <div class="flex flex-wrap gap-4">
+
+          <!-- Primary -->
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded transition">
+            Primary
+          </button>
+
+          <!-- Secondary -->
+          <button class="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded transition">
+            Secondary
+          </button>
+
+          <!-- Outline -->
+          <button class="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-5 py-2 rounded transition">
+            Outline
+          </button>
+
+          <!-- Disabled -->
+          <button disabled class="bg-gray-300 text-gray-500 px-5 py-2 rounded cursor-not-allowed">
+            Disabled
+          </button>
+
+          <!-- Loading -->
+          <button class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded flex items-center gap-2 transition">
+            <div class="spinner"></div>
+            Loading
+          </button>
+
+        </div>
+
+        <!-- Sizes -->
+        <div class="mt-8 flex gap-4 items-center">
+
+          <button class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 text-sm rounded transition">
+            Small
+          </button>
+
+          <button class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded transition">
+            Medium
+          </button>
+
+          <button class="bg-purple-600 hover:bg-purple-700 text-white px-7 py-3 text-lg rounded transition">
+            Large
+          </button>
+
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section id="cards" class="mb-14">
+        <h2 class="text-2xl font-bold mb-5">Cards</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <!-- Product Card -->
+          <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-5">
+            <img
+              src="https://via.placeholder.com/300x180"
+              alt="product"
+              class="rounded mb-4"
+            />
+
+            <h3 class="text-xl font-bold mb-2">
+              Headphone
+            </h3>
+
+            <p class="text-gray-600 mb-3">
+              Tai nghe chất lượng cao dành cho sinh viên.
+            </p>
+
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-blue-600">
+                499.000đ
+              </span>
+
+              <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">
+                Buy
+              </button>
+            </div>
+          </div>
+
+          <!-- Profile Card -->
+          <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-5 text-center">
+            <img
+              src="https://via.placeholder.com/120"
+              alt="avatar"
+              class="w-24 h-24 rounded-full mx-auto mb-4"
+            />
+
+            <h3 class="text-xl font-bold">
+              Nguyễn Văn A
+            </h3>
+
+            <p class="text-gray-500 mb-4">
+              Frontend Developer
+            </p>
+
+            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition">
+              Follow
+            </button>
+          </div>
+
+          <!-- Pricing Card -->
+          <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-5 text-center">
+            <h3 class="text-2xl font-bold mb-3">
+              Premium
+            </h3>
+
+            <p class="text-4xl font-bold text-blue-600 mb-5">
+              $19
+            </p>
+
+            <ul class="space-y-2 mb-5 text-gray-600">
+              <li>✔ 10 Projects</li>
+              <li>✔ 5GB Storage</li>
+              <li>✔ Email Support</li>
+            </ul>
+
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded transition">
+              Choose Plan
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section id="forms" class="mb-14">
+        <h2 class="text-2xl font-bold mb-5">Forms</h2>
+
+        <div class="bg-white p-6 rounded-lg shadow max-w-xl">
+
+          <!-- Input -->
+          <div class="mb-5">
+            <label class="block mb-2 font-semibold">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              placeholder="Enter your name"
+              class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Select -->
+          <div class="mb-5">
+            <label class="block mb-2 font-semibold">
+              Choose Course
+            </label>
+
+            <select
+              class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>JavaScript</option>
+            </select>
+          </div>
+
+          <!-- Textarea -->
+          <div class="mb-5">
+            <label class="block mb-2 font-semibold">
+              Message
+            </label>
+
+            <textarea
+              rows="4"
+              placeholder="Write something..."
+              class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+
+          <!-- Checkbox Group -->
+          <div class="mb-5">
+            <label class="block mb-2 font-semibold">
+              Skills
+            </label>
+
+            <div class="space-y-2">
+              <label class="flex items-center gap-2">
+                <input type="checkbox" class="accent-blue-600"/>
+                HTML
+              </label>
+
+              <label class="flex items-center gap-2">
+                <input type="checkbox" class="accent-blue-600"/>
+                CSS
+              </label>
+
+              <label class="flex items-center gap-2">
+                <input type="checkbox" class="accent-blue-600"/>
+                JavaScript
+              </label>
+            </div>
+          </div>
+
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded transition">
+            Submit
+          </button>
+
+        </div>
+      </section>
+
+      <!-- ALERTS -->
+      <section id="alerts" class="mb-14">
+        <h2 class="text-2xl font-bold mb-5">Alerts</h2>
+
+        <div class="space-y-4">
+
+          <!-- Success -->
+          <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded flex justify-between items-center">
+            <span>
+              Success! Your action was completed.
+            </span>
+
+            <button class="font-bold hover:text-black">
+              ×
+            </button>
+          </div>
+
+          <!-- Error -->
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded flex justify-between items-center">
+            <span>
+              Error! Something went wrong.
+            </span>
+
+            <button class="font-bold hover:text-black">
+              ×
+            </button>
+          </div>
+
+          <!-- Warning -->
+          <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded flex justify-between items-center">
+            <span>
+              Warning! Please check your input.
+            </span>
+
+            <button class="font-bold hover:text-black">
+              ×
+            </button>
+          </div>
+
+          <!-- Info -->
+          <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded flex justify-between items-center">
+            <span>
+              Info! New update available.
+            </span>
+
+            <button class="font-bold hover:text-black">
+              ×
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
