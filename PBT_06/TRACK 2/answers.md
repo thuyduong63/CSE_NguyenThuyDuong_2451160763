@@ -57,4 +57,4 @@ group-hover: → phần tử con thay đổi khi hover vào phần tử cha có 
 Ẩn trên mobile, hiện flex từ tablet trở lên:
 hidden md:flex
 hidden → ẩn trên mobile
-md:flex → từ màn hình md trở lên hiển thị flex
+md:flex → từ màn hình md trở lên hiển thị FLEX
