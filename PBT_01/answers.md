@@ -118,3 +118,122 @@ Không dùng <thead>, <tbody>
 Ý 3
 Form đó có action là search, method là get
 Input types được sử dụng là text
+
+### PHẦN C — SUY LUẬN
+# Câu C1 — Thiết kế cấu trúc
+<header>
+  <!-- header vì đây là phần đầu trang -->
+  <div class="logo">Logo</div>
+  <nav class="main-nav" aria-lable="Menu chính">
+    <!-- nav vì đây là điều hướng -->
+    <ul>
+      <!--ul vì đây danh sách ko có thứ tự -->
+      <li><a href="/">Trang chủ</a></li>
+      <li><a href="/category">Danh mục</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- main vì đây là phần thân trang -->
+  <nav aria-label="breadcrumb">
+    <!-- nav vì đây là điều hướng -->
+    <ol>
+      <!--ol vì đây danh sách có thứ tự -->
+      <li><a href="/">Trang chủ</a></li>
+      <li><a href="/mobile">Điện thoại</a></li>
+      <li aria-current="page">iPhone 16</li>
+    </ol>
+  </nav>
+
+  <article class="product-details">
+    <!-- article vì đây là bài viết về 1 sp -->
+    <div class="product-layout">
+      <section class="product-gallery" aria-label="Hình ảnh sản phẩm">
+        <!-- section vì đây là phần chứa hình ảnh sp -->
+        <figure>
+          <!-- figure vì đây là phần hình ảnh sp -->
+          <img src="main.jpg" alt="iPhone 16 mặt trước" />
+        </figure>
+        <div class="thumbnails">
+          <img src="thumb1.jpg" alt="Góc nghiêng" />
+          <img src="thumb2.jpg" alt="Cạnh bên" />
+          <img src="thumb3.jpg" alt="Mặt sau" />
+          <img src="thumb4.jpg" alt="Cổng sạc" />
+        </div>
+      </section>
+
+      <section class="product-info">
+        <!-- section vì đây là phần chứa thông tin sp -->
+        <h1>Tên sản phẩm</h1>
+        <div class="rating" aria-label="Đánh giá 5 sao">
+          <span>★★★★★</span>
+        </div>
+
+        <p class="price"><strong>20.000.000đ</strong></p>
+        <div class="description">
+          <h2>Mô tả ngắn</h2>
+          <p>Nội dung mô tả tóm tắt sản phẩm...</p>
+        </div>
+
+        <button type="button">Thêm vào giỏ hàng</button>
+      </section>
+    </div>
+
+    <section class="product-specs">
+      <!-- section vì đây là phần chứa thông số ký thuật sp -->
+      <h2>Thông số kỹ thuật</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th scope="row">Màn hình</th>
+            <td>6.1 inch</td>
+          </tr>
+          <tr>
+            <th scope="row">Chipset</th>
+            <td>A18 Bionic</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="reviews-section">
+      <!-- section vì đây là phần chứa đánh giá -->
+      <h2>Đánh giá từ khách hàng</h2>
+      <article class="review-item">
+        <!-- article vì đây là phần đánh giá sp -->
+        <h3>Nguyễn Văn A</h3>
+        <p>Sản phẩm rất tốt!</p>
+      </article>
+    </section>
+  </article>
+
+  <aside class="related-products">
+    <!-- aside vì đây là phần chứa các sp tương tự -->
+    <h2>Sản phẩm tương tự</h2>
+    <ul>
+      <!-- ul vì đây là danh sách ko có thứ tự -->
+      <li><a href="/iphone-15">iPhone 15</a></li>
+      <li><a href="/samsung-s24">Samsung S24</a></li>
+    </ul>
+  </aside>
+</main>
+
+<footer>
+  <!-- footer vì đây là phần chân trang -->
+  <p>&copy; 2024 Cửa hàng điện thoại</p>
+  <address>Địa chỉ: 123 Đường ABC, Hà Nội</address>
+  <!-- address vì đây là địa chỉ -->
+</footer>
+
+# Câu C2 — So sánh & Tranh luận
+Về mặt kỹ thuật, có hai lý do chí mạng mà <div> không bao giờ thay thế được Semantic HTML:
+
+SEO (Tối ưu hóa công cụ tìm kiếm): Google không "nhìn" trang web như chúng ta. Bot tìm kiếm dựa vào các thẻ như <main>, <article>, hay <header> để hiểu đâu là nội dung quan trọng. Nếu mọi thứ đều là <div>, bạn đang ép Google phải đoán xem đâu là tên sản phẩm, đâu là giá tiền. Sử dụng đúng thẻ giúp trang web có thứ hạng tốt hơn một cách tự nhiên mà không cần tiểu xảo.
+
+Accessibility (Khả năng truy cập): Hãy tưởng tượng một người khiếm thị dùng Screen Reader (trình đọc màn hình). Nếu bạn dùng <nav>, trình đọc sẽ thông báo: "Đây là phần điều hướng". Nếu bạn dùng <div>, nó chỉ là một khối dữ liệu vô danh. Việc dùng đúng thẻ là cách chúng ta thể hiện sự chuyên nghiệp và đạo đức nghề nghiệp đối với mọi nhóm người dùng.
+
+Ví dụ cụ thể:
+
+Khi dùng thẻ <button>, trình duyệt mặc định hỗ trợ việc nhấn "Enter" để kích hoạt và tự động có trạng thái focus. Nếu dùng <div class="button">, bạn sẽ phải viết thêm một đống JavaScript chỉ để bắt sự kiện bàn phím và định nghĩa lại thuộc tính role="button". Quá lãng phí thời gian!
+Tuy nhiên, tôi đồng ý rằng không cần cực đoan. <div> vẫn cực kỳ phù hợp trong trường hợp bạn cần một thẻ bọc (wrapper) chỉ để phục vụ mục đích Layout hoặc Styling (như tạo một container để căn giữa bằng Flexbox) mà không mang ý nghĩa nội dung.
