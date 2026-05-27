@@ -97,3 +97,16 @@ Hiệu suất tải trang chậm (Rendering Performance) Trình duyệt xử lý
 Vấn đề: Thông thường, trình duyệt cần nhận được toàn bộ dữ liệu của bảng </table> thì nó mới bắt đầu tính toán kích thước và hiển thị. Điều này tạo ra cảm giác trang web bị "khựng" lại một lúc.
 
 Ngược lại, các layout bằng CSS được trình duyệt render dần dần (progressive rendering), giúp người dùng thấy nội dung ngay lập tức khi nó vừa được tải xuống.
+
+### PHẦN B
+# CÂU B3
+Lỗi 1: Dòng 1 - Thiếu loại tài liệu - <!DOCTYPE html> 
+Lỗi 2: Dòng 2 - Thiếu ngôn ngữ - <html lang="vi"> 
+Lỗi 3: Dòng 4 - Thiếu thẻ đóng - <title>Trang web</title> 
+Lỗi 4: Dòng 5 - Sai giá trị của thuộc tính charset - <meta charset="utf-8"> 
+Lỗi 5: Dòng 8 - Sai thẻ đóng - <h1>Welcome to ShopTLU</h1> 
+Lỗi 6: Dòng 12 - Sai thẻ đóng - <a href="home">Trang chủ</a> 
+Lỗi 7: Dòng 22 - Sai vị trí thẻ <b> và <p> -
+Giá: 25.990.000đ
+Lỗi 8: Dòng 28 - Phải dùng <thead></thead> cho tiêu đề bảng - <thead></thead>
+Lỗi 9: Dòng 29 và 30 - Dùng <th></th> cho tiêu đề - <th></th> Lỗi 10: Dòng 44 - 1 trang web chỉ dùng 1 thẻ <main> - <aside></aside> Lỗi 11: Dòng 49 - Thiếu thẻ đóng - <p>Copyright 2026</p>
