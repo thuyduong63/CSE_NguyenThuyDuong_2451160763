@@ -110,3 +110,11 @@ Lỗi 7: Dòng 22 - Sai vị trí thẻ <b> và <p> -
 Giá: 25.990.000đ
 Lỗi 8: Dòng 28 - Phải dùng <thead></thead> cho tiêu đề bảng - <thead></thead>
 Lỗi 9: Dòng 29 và 30 - Dùng <th></th> cho tiêu đề - <th></th> Lỗi 10: Dòng 44 - 1 trang web chỉ dùng 1 thẻ <main> - <aside></aside> Lỗi 11: Dòng 49 - Thiếu thẻ đóng - <p>Copyright 2026</p>
+
+# CÂU B4
+Ý 2
+Table đó hiển thị thông tin về Thông tin sản phẩm
+Không dùng <thead>, <tbody>
+Ý 3
+Form đó có action là search, method là get
+Input types được sử dụng là text
