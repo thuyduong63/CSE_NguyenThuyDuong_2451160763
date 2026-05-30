@@ -1,0 +1,88 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Multimedia - Giới thiệu sản phẩm</title>
+</head>
+<body>
+
+    <h1>Giới Thiệu Sản Phẩm Công Nghệ</h1>
+
+    <!-- SVG Inline -->
+    <h2>Logo Thương Hiệu</h2>
+    <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" fill="royalblue" />
+        <text x="60" y="68" text-anchor="middle"
+              fill="white" font-size="24">TD</text>
+    </svg>
+
+    <hr>
+
+    <!-- Hình ảnh sản phẩm -->
+    <h2>Hình Ảnh Sản Phẩm</h2>
+
+    <figure>
+        <img src="images/laptop.jpg"
+             alt="Laptop màn hình lớn dành cho học tập và làm việc"
+             loading="lazy"
+             style="max-width:100%; height:auto;">
+        <figcaption>Laptop hiệu năng cao.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="images/phone.jpg"
+             alt="Điện thoại thông minh màu đen"
+             loading="lazy"
+             style="max-width:100%; height:auto;">
+        <figcaption>Điện thoại thông minh thế hệ mới.</figcaption>
+    </figure>
+
+    <figure>
+        <img src="images/headphone.jpg"
+             alt="Tai nghe không dây chống ồn"
+             loading="lazy"
+             style="max-width:100%; height:auto;">
+        <figcaption>Tai nghe Bluetooth chất lượng cao.</figcaption>
+    </figure>
+
+    <hr>
+
+    <!-- Video YouTube -->
+    <h2>Video Giới Thiệu Trên YouTube</h2>
+
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Video giới thiệu sản phẩm"
+        allowfullscreen>
+    </iframe>
+
+    <hr>
+
+    <!-- Video HTML5 -->
+    <h2>Video Sản Phẩm</h2>
+
+    <video controls
+           width="640"
+           poster="images/poster.jpg">
+        <source src="media/product-video.mp4" type="video/mp4">
+        <source src="media/product-video.webm" type="video/webm">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video>
+
+    <hr>
+
+    <!-- Audio -->
+    <h2>Nhạc Nền Giới Thiệu</h2>
+
+    <audio controls>
+        <source src="media/background.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio.
+    </audio>
+
+</body>
+</html>
+```
