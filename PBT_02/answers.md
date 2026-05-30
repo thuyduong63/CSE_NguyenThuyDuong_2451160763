@@ -82,3 +82,60 @@ Mục đích: Dùng khi hình ảnh cần chú thích, giải thích hoặc là 
 Ví dụ thực tế:
 Ảnh sản phẩm trên trang thương mại điện tử kèm theo tên sản phẩm và giá bán ngay bên dưới.
 Biểu đồ thống kê hoặc sơ đồ khối trong một bài báo cáo, kèm theo đoạn chú thích giải thích số liệu.
+
+### Phần C
+
+# Câu C1
+
+- Lỗi 1: Dòng 2 - Input "Tên" không có <label for="...">, vi phạm accessibility
+  Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+- Lỗi 2: Dòng 3 - Input "Email" không có <label for="...">, vi phạm accessibility
+  Sửa: <label for="email">Email của bạn:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+
+- Lỗi 3: Dòng 4 và 5 - Hai input "Mật khẩu" đều không có <lable for="...">, vi phạm accessibility
+  Sửa:
+  <label for="password">Mật khẩu:</label>
+  <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+
+  <label for="confirm_password">Nhập lại mật khẩu:</label>
+  <input type="password" id="confirm_password" name="confirm_password" placeholder="Nhập lại mật khẩu" required>
+
+- Lỗi 4: Dòng 6 - Input "Phone" không có <label for="...">, vi phạm accessibility
+  Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" value="0901234567" pattern="[0-9]{10}" placeholder="0901234567">
+
+- Lỗi 5: Dòng 7 - Phần tử <select> không có <label> để giải nghĩa, vi phạm accessibility.
+  Sửa: <label for="city">Thành phố:</label> <select id="city" name="city">
+
+- Lỗi 6: Dòng 8 và 9 - Các phần tử <option> trong thẻ <select> thiếu thuộc tính value, vi phạm validation
+  Sửa: <option value="hanoi">Hà Nội</option>
+  <option value="hcm">TP.HCM</option>
+
+- Lỗi 7: Dòng 11 - Thẻ <label> chứa ô "Tôi đồng ý điều khoản" thiếu input và thiếu thuộc tính for liên kết, vi phạm validation
+  Sửa: <label><input type="checkbox" name="terms" required> Tôi đồng ý điều khoản</label>
+
+-Lỗi 8: Dòng 14 - Nút submit sử dụng <input type="submit"> thay vì thẻ <button type="submit">, vi phạm best practices
+
+# Câu C2
+
+1. Pattern Regex cho CMND/CCCD và Số tài khoản
+
+- CMND/CCCD (Đúng 12 chữ số): <pattern="[0-9]{12}" required>
+- Số tài khoản (10-15 chữ số): <pattern="[0-9]{10,15}" required>
+
+2. HTML5 validation không đủ an toàn cho ứng dụng ngân hàng vì:
+   HTML5 validation (như required, pattern, minlength, type="email") chỉ là kiểm tra ở phía người dùng (Client-side). Nó sinh ra để cải thiện UX (trải nghiệm người dùng) chứ không phải để bảo mật.
+
+- Người dùng có thể dễ dàng mở DevTools (F12) để xóa bỏ các thuộc tính HTML5 này.
+- Hacker có thể bỏ qua hoàn toàn giao diện Frontend và gửi dữ liệu (request) trực tiếp đến Backend thông qua các công cụ như Postman, cURL, hoặc tự viết script.
+
+3. Ba loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JS)
+
+- Kiểm tra tính duy nhất (Database/Asynchronous Check): Kiểm tra xem Số tài khoản, CMND/CCCD hoặc Email này đã được đăng ký trong cơ sở dữ liệu của ngân hàng chưa (phải gọi API).
+- So khớp chéo giữa các trường (Cross-field Validation): Ví dụ: kiểm tra xem mật khẩu và phần "nhập lại mật khẩu" có khớp nhau không, hoặc ngày phát hành thẻ có trước ngày hết hạn không.
+- Xử lý logic nghiệp vụ (Business Logic Check): Đối với mã PIN (mặc dù đã dùng HTML5 để giới hạn 6 số), bạn cần JS để chặn các chuỗi quá dễ đoán như 123456, 111111, hoặc kiểm tra xem mã PIN có bị trùng với ngày tháng năm sinh của người dùng không.
+
+4. Hai rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+
+- Lỗ hổng tiêm nhiễm mã độc (Injection Attacks - SQLi / XSS): Kẻ gian có thể bypass Frontend để gửi các câu lệnh SQL hoặc các đoạn mã JavaScript độc hại vào form. Nếu Backend không làm sạch (sanitize) và validate, cơ sở dữ liệu có thể bị đánh cắp, xóa sạch, hoặc hệ thống bị chiếm quyền điều khiển.
+- Hỏng toàn vẹn dữ liệu (Data Integrity Corruption): Dữ liệu rác, sai định dạng (ví dụ: tuổi là số âm, số tiền chuyển khoản là chữ cái, CMND dài 1000 ký tự) sẽ lọt thẳng vào Database. Điều này làm hỏng cấu trúc dữ liệu của ngân hàng, gây crash hệ thống hoặc dẫn đến các sai sót nghiêm trọng trong giao dịch tài chính.
