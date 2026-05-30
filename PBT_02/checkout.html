@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Đặt hàng</title>
+</head>
+<body>
+
+    <h1>Form Đặt Hàng</h1>
+
+    <!-- PHẦN 1: GIỎ HÀNG -->
+    <h2>Giỏ Hàng</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Sản phẩm</th>
+                <th>Đơn giá (VNĐ)</th>
+                <th>Số lượng</th>
+                <th>Thành tiền (VNĐ)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Laptop Dell</td>
+                <td>15,000,000</td>
+                <td>1</td>
+                <td>15,000,000</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Chuột Logitech</td>
+                <td>500,000</td>
+                <td>2</td>
+                <td>1,000,000</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Bàn phím cơ</td>
+                <td>1,200,000</td>
+                <td>1</td>
+                <td>1,200,000</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"><strong>Tổng cộng</strong></td>
+                <td><strong>17,200,000</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+
+    <!-- BONUS: DATALIST -->
+    <label for="search-product">Tìm kiếm sản phẩm:</label>
+    <input
+        type="text"
+        id="search-product"
+        list="products">
+
+    <datalist id="products">
+        <option value="Laptop Dell">
+        <option value="Chuột Logitech">
+        <option value="Bàn phím cơ">
+        <option value="Tai nghe Bluetooth">
+    </datalist>
+
+    <br><br>
+
+    <!-- BONUS: OUTPUT -->
+    <label>Tổng tiền hiển thị:</label>
+    <output>17,200,000 VNĐ</output>
+
+    <br><br>
+
+    <!-- BONUS: METER -->
+    <label>Điểm tích lũy:</label>
+    <meter value="70" min="0" max="100">70%</meter>
+
+    <hr>
+
+    <!-- PHẦN 2: THANH TOÁN -->
+    <h2>Thông Tin Thanh Toán</h2>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Phương thức thanh toán</legend>
+
+            <input
+                type="radio"
+                id="cod"
+                name="payment"
+                value="COD"
+                required>
+            <label for="cod">COD</label>
+
+            <br>
+
+            <input
+                type="radio"
+                id="bank"
+                name="payment"
+                value="Bank">
+            <label for="bank">Chuyển khoản</label>
+
+            <br>
+
+            <input
+                type="radio"
+                id="wallet"
+                name="payment"
+                value="Wallet">
+            <label for="wallet">Ví điện tử</label>
+        </fieldset>
+
+        <br>
+
+        <label for="coupon">Mã giảm giá:</label>
+        <input
+            type="text"
+            id="coupon"
+            name="coupon"
+            pattern="SALE[0-9]{4}"
+            placeholder="SALE2026">
+
+        <br><br>
+
+        <label for="note">Ghi chú:</label><br>
+        <textarea
+            id="note"
+            name="note"
+            rows="4"
+            cols="40"
+            placeholder="Nhập ghi chú (không bắt buộc)">
+        </textarea>
+
+        <hr>
+
+        <!-- PHẦN 3: GIAO HÀNG -->
+        <h2>Thông Tin Giao Hàng</h2>
+
+        <label for="fullname">Họ và tên:</label>
+        <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            required>
+
+        <br><br>
+
+        <label for="phone">Số điện thoại:</label>
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required>
+
+        <br><br>
+
+        <label for="address">Địa chỉ:</label>
+        <input
+            type="text"
+            id="address"
+            name="address"
+            required>
+
+        <br><br>
+
+        <label for="delivery-date">
+            Ngày giao hàng mong muốn:
+        </label>
+        <input
+            type="date"
+            id="delivery-date"
+            name="delivery-date"
+            min="2026-05-31"
+            required>
+
+        <br><br>
+
+        <label for="time-slot">Khung giờ:</label>
+        <select id="time-slot" name="time-slot">
+            <option value="morning">
+                Sáng (8h - 12h)
+            </option>
+            <option value="afternoon">
+                Chiều (14h - 18h)
+            </option>
+            <option value="evening">
+                Tối (18h - 21h)
+            </option>
+        </select>
+
+        <br><br>
+
+        <label for="delivery-days">
+            Thời gian giao hàng (ngày):
+        </label>
+        <input
+            type="range"
+            id="delivery-days"
+            name="delivery-days"
+            min="1"
+            max="7"
+            step="1">
+
+        <br><br>
+
+        <button
+            type="submit"
+            aria-label="Xác nhận đặt hàng">
+            Xác nhận đặt hàng
+        </button>
+
+    </form>
+
+</body>
+</html>
+```
