@@ -64,14 +64,11 @@ Thuộc tính alt trên thẻ <img>
 Chức năng: Cung cấp văn bản thay thế cho hình ảnh. Hiển thị khi ảnh bị lỗi (broken link) và hỗ trợ các công cụ đọc màn hình (screen reader) cho người khiếm thị.
 
 Viết alt cho 3 trường hợp:
-
-Ảnh sản phẩm iPhone 16:
+- Ảnh sản phẩm iPhone 16:
 alt="Điện thoại iPhone 16 màu đen chính hãng"
-
-Ảnh trang trí (decorative):
+- Ảnh trang trí (decorative):
 alt="" (Bỏ trống thuộc tính alt để trình đọc màn hình bỏ qua, tránh gây nhiễu thông tin).
-
-Ảnh biểu đồ doanh thu Q1/2026:
+- Ảnh biểu đồ doanh thu Q1/2026:
 alt="Biểu đồ cột thể hiện doanh thu Q1 năm 2026, đạt mức tăng trưởng 15% so với cùng kỳ năm ngoái"
 
 # Câu A5
