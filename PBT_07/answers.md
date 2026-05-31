@@ -72,3 +72,59 @@ console.log("" == false); // true
 
 2. Từ giờ trở đi, bạn nên dùng == hay ===?
    Ta luôn luôn sử dụng === (toán tử so sánh nghiêm ngặt - Strict Equality). Chỉ sử dụng == khi có một lý do cực kỳ cụ thể và hiểu rõ mình đang làm gì.
+
+# Câu A4
+
+1. Danh sách TẤT CẢ các giá trị Falsy trong JavaScript
+
+false : Chính là giá trị Boolearn sai.
+
+0 : Số không (Number).
+
+-0 : Số âm không (Number).
+
+0n : BigInt số không (định dạng số nguyên lớn).
+
+"" (hoặc '', `````) : Chuỗi rỗng (không chứa bất kỳ ký tự nào, kể cả dấu cách).
+
+null : Giá trị rỗng/vô giá trị được định nghĩa rõ ràng.
+
+undefined : Biến chưa được định nghĩa hoặc chưa gán giá trị.
+
+NaN : Not a Number (kết quả toán học không hợp lệ).
+
+2. Dự đoán kết quả các câu điều kiện if
+
+```js
+if ("0") console.log("A"); // In chữ A (Vì "0" là chuỗi có ký tự, không phải chuỗi rỗng)
+if ("") console.log("B"); // KHÔNG IN (Vì "" là chuỗi rỗng - Falsy)
+if ([]) console.log("C"); // In chữ C (Vì mảng rỗng [] là một object, mà tất cả object đều là Truthy)
+if ({}) console.log("D"); // In chữ D (Vì đối tượng rỗng {} cũng là object $\rightarrow$ Truthy)
+if (null) console.log("E"); // KHÔNG IN (Vì null là Falsy)
+if (0) console.log("F"); // KHÔNG IN (Vì số 0 là Falsy)
+if (-1) console.log("G"); // In chữ G (Chỉ có số 0 là Falsy, các số khác 0 kể cả số âm đều là Truthy)
+if (" ") console.log("H"); // In chữ H (Chuỗi chứa dấu cách không phải là chuỗi rỗng $\rightarrow$ Truthy)
+```
+
+# Câu A5
+
+**Cách 1**
+// Cũ: var greeting = "Xin chào " + name + "! Bạn " + age + " tuổi.";
+var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+
+**Cách 2**
+// Cũ: var url = "https://api.example.com/users/" + userId + "/orders?page=" + page;
+var url = `https://api.example.com/users/${userId}/orders?page=${page}`;
+
+**Cách 3**
+// Cũ: var html = "<div class=\"card\">" + "<h2>" + title + ...
+
+```js
+var html = `
+<div class="card">
+    <h2>${title}</h2>
+    <p>${description}</p>
+    <span>Giá: ${price}đ</span>
+</div>
+`;
+```
