@@ -29,3 +29,28 @@
   Ngoài block: 1
 - Giải thích: Từ khóa let có tính chất Block Scope (phạm vi trong cặp ngoặc nhọn {}). Biến let a = 2; nằm bên trong block là một biến hoàn toàn độc lập với biến let a = 1; ở bên ngoài. Khi ra khỏi block, biến a = 2 bị hủy, lệnh console.log phía dưới sẽ đọc biến a ở scope ngoài cùng.
 
+# Câu A2
+
+1. Dự đoán kết quả
+
+```js
+console.log(typeof null); // "object"
+console.log(typeof undefined); // "undefined"
+console.log(typeof NaN); // "number"
+console.log("5" + 3); // "53"
+console.log("5" - 3); // 2
+console.log("5" * "3"); // 15
+console.log(true + true); // 2
+console.log([] + []); // "" (chuỗi rỗng)
+console.log([] + {}); // "[object Object]"
+console.log({} + []); // "[object Object]" (hoặc 0 tùy thuộc vào môi trường console)
+```
+
+2. Giải thích tại sao "5" + 3 và "5" - 3 cho kết quả khác nhau
+   Sự khác biệt này nằm ở cách JavaScript định nghĩa hành vi của các toán tử + và - khi đối mặt với các kiểu dữ liệu khác nhau.
+
+- Toán tử + vừa là toán tử toán học (cộng số), vừa là toán tử nối chuỗi (concatenation).
+  Trong "5" + 3, vì "5" là một chuỗi, JavaScript sẽ tự động ép kiểu số 3 thành chuỗi "3". Kết quả là "5" + "3" bằng "53"
+
+- Toán tử làm phép tính trừ toán học. Nó không có chức năng nào liên quan đến chuỗi.
+  Trong "5" - 3, JavaScript thấy chuỗi "5", nó liền ép kiểu "5" thành số 5. Kết quả phép tính trở thành 5 - 3 bằng 2
