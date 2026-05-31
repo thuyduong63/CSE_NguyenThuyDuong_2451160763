@@ -54,3 +54,21 @@ console.log({} + []); // "[object Object]" (hoặc 0 tùy thuộc vào môi trư
 
 - Toán tử làm phép tính trừ toán học. Nó không có chức năng nào liên quan đến chuỗi.
   Trong "5" - 3, JavaScript thấy chuỗi "5", nó liền ép kiểu "5" thành số 5. Kết quả phép tính trở thành 5 - 3 bằng 2
+
+# Câu A3
+
+1. Dự đoán kết quả
+
+```js
+console.log(5 == "5"); // true
+console.log(5 === "5"); // false
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+console.log(NaN == NaN); // false
+console.log(0 == false); // true
+console.log(0 === false); // false
+console.log("" == false); // true
+```
+
+2. Từ giờ trở đi, bạn nên dùng == hay ===?
+   Ta luôn luôn sử dụng === (toán tử so sánh nghiêm ngặt - Strict Equality). Chỉ sử dụng == khi có một lý do cực kỳ cụ thể và hiểu rõ mình đang làm gì.
