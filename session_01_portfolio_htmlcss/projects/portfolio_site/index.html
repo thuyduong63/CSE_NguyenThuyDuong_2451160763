@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Thuy Duong Portfolio</title>
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">    
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">Nguyen Thuy Duong</div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <label for="menu-toggle" class="hamburger">
+            &#9776;
+        </label>
+
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <h1>Hi I'm Nguyen Thuy Duong</h1>
+
+            <p>
+                Full-Stack Developer | UI Designer | Problem Solver
+            </p>
+
+            <a href="#portfolio" class="cta-button">
+                View My Work
+            </a>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about-section">
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+                        <img src="https://placehold.co/400x400" alt="">
+                    </div>
+
+                    <div class="about-content">
+
+                        <h2>About Me</h2>
+
+                        <p class="lead">
+                            Hi! I'm Nguyen Thuy Duong, a student majoring in Information Systems.
+                        </p>
+
+                        <p>
+                            I enjoy learning web development and building modern responsive websites.
+                            My goal is to become a professional Full-Stack Developer.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="skills-section">
+
+            <div class="container">
+
+                <h2>My Skills</h2>
+
+                <div class="skills-grid">
+
+                    <div class="skill-item">
+                        <span class="skill-name">HTML</span>
+                        <span class="skill-percent">90%</span>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">CSS</span>
+                        <span class="skill-percent">70%</span>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percent">60%</span>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="60"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">React</span>
+                        <span class="skill-percent">40%</span>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="40"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio" class="portfolio-section">
+
+            <div class="container">
+
+                <h2>My Portfolio</h2>
+
+                <div class="portfolio-grid">
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox1">
+                            <img src="https://picsum.photos/400/300?1" alt="">
+                        </a>
+
+                        <div class="portfolio-overlay">
+                            <h3>E-Commerce Website</h3>
+                            <p>React + Node.js</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox2">
+                            <img src="https://picsum.photos/400/300?2" alt="">
+                        </a>
+
+                        <div class="portfolio-overlay">
+                            <h3>Travel App</h3>
+                            <p>Mobile Design</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox3">
+                            <img src="https://picsum.photos/400/300?3" alt="">
+                        </a>
+
+                        <div class="portfolio-overlay">
+                            <h3>Portfolio UI</h3>
+                            <p>Figma Design</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox4">
+                            <img src="https://picsum.photos/400/300?4" alt="">
+                        </a>
+
+                        <div class="portfolio-overlay">
+                            <h3>Dashboard</h3>
+                            <p>Vue + Firebase</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox5">
+                            <img src="https://picsum.photos/400/300?5" alt="">
+                        </a>
+
+                        <div class="portfolio-overlay">
+                            <h3>Landing Page</h3>
+                            <p>HTML CSS</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox6">
+                            <img src="https://picsum.photos/400/300?6" alt="">
+                        </a>
+
+                        <div class="portfolio-overlay">
+                            <h3>Admin Panel</h3>
+                            <p>React Admin</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- LIGHTBOX -->
+
+        <div id="lightbox1" class="lightbox">
+            <img src="https://picsum.photos/900/700?1" alt="">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox2" class="lightbox">
+            <img src="https://picsum.photos/900/700?2" alt="">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox3" class="lightbox">
+            <img src="https://picsum.photos/900/700?3" alt="">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox4" class="lightbox">
+            <img src="https://picsum.photos/900/700?4" alt="">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox5" class="lightbox">
+            <img src="https://picsum.photos/900/700?5" alt="">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox6" class="lightbox">
+            <img src="https://picsum.photos/900/700?6" alt="">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+<section id="contact" class="contact-section">
+    <div class="container">
+
+        <h2>Get In Touch</h2>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+
+                <p>
+                    Feel free to reach out. I'm always open to discussing new projects.
+                </p>
+
+                <div class="info-item">
+                    <span>📧</span>
+                    <span>zaika.nope11@gmail.com</span>
+                </div>
+
+                <div class="info-item">
+                    <span>📍</span>
+                    <span>Hanoi, Vietnam</span>
+                </div>
+            </div>
+
+            <form class="contact-form">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+    </main>
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                Nguyen Thuy Duong
+            </div>
+
+            <p class="footer-tagline">
+                Building modern responsive websites
+            </p>
+
+            <div class="social-links">
+
+                <a href="#" class="social-link">GitHub</a>
+
+                <a href="#" class="social-link">LinkedIn</a>
+
+                <a href="#" class="social-link">Email</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Nguyen Thuy Duong</p>
+        </div>
+
+    </div>
+
+</footer>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
